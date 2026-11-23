@@ -1,0 +1,4 @@
+# The private deny-list belongs outside this repository (see CONTRIBUTING.md).
+# This entry is a safety net in case a copy is left here by mistake.
+.private-terms
+.DS_Store

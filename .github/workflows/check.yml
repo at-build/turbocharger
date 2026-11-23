@@ -1,0 +1,21 @@
+name: Check
+
+# Runs the repository's own check on every proposed change.
+# It cannot look for private project names: that list never leaves a
+# contributor's machine, so contributors run the full check locally.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Skill shape, project leftovers and hidden content
+        run: bash scripts/check.sh --no-private-terms
