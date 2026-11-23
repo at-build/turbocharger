@@ -8,7 +8,7 @@
     {
       "name": "turbocharger",
       "description": "Seven habits that improve the information an AI agent works from, written in everyday language: keep track, give clear instructions, stay within limits, check the facts, prove it works, learn from mistakes, and mock up before building",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "source": "./"
     }
   ]

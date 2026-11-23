@@ -1,16 +1,16 @@
 ## What this changes
 
-<one or two sentences>
+[one or two sentences]
 
 ## The lesson behind it
 
-<the kind of mistake, and what to do instead, stated generally; no project details>
+[the kind of mistake, and what to do instead, stated generally; no project details]
 
 ## How it was tested
 
-- **The situation:** <one in which the mistake would happen>
-- **Without the change:** <what the agent did, over how many runs>
-- **With the change:** <what the agent did, over how many runs>
+- **The situation:** [one in which the mistake would happen]
+- **Without the change:** [what the agent did, over how many runs]
+- **With the change:** [what the agent did, over how many runs]
 
 ## Checklist
 

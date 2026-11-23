@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.3 (2026-11-23)
+
+The hidden-content check closed, after a security review found ways past it.
+
+- A single byte that was not valid text used to stop the scan silently and let everything through. The check now fails when a file is not plain text, or when the scan cannot finish.
+- Every file that would be committed is now scanned, not only some kinds. A skill folder may hold Markdown files only, and a file may not be a link to another file.
+- Many more characters that cannot be seen are now caught, including the ones used to hide a whole sentence behind one visible character.
+- In Markdown, the check now also fails on anything GitHub does not display: HTML, words between angle brackets, link definitions, link titles, images, characters written as codes, formulas, and long runs of spaces.
+- `bash scripts/check.sh --self-test` plants 58 known ways of hiding an instruction, plus 4 pieces of ordinary text, and runs on every proposed change.
+- The automated check now uses an exact, fixed copy of the step that fetches the repository, and that step no longer keeps its access token afterwards.
+- Templates: placeholders are now written in square brackets. GitHub dropped the old angle-bracket ones from view, so headings such as the status note's title showed up partly blank.
+
 ## 0.3.2 (2026-11-23)
 
 - `proving-it-works`: the reference page now says the review of the whole looks for four things, matching the list that follows.

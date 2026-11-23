@@ -47,10 +47,10 @@ Keep a private list of your project's names outside this repository, and tell th
 ```
 # one name per line, matched as a whole word, in any letter case
 # start a line with = to match the exact letter case (for short names that are also ordinary words)
-<your product names>
-<your feature names>
-<your customers, people, suppliers>
-<your service, table and environment names>
+[your product names]
+[your feature names]
+[your customers, people, suppliers]
+[your service, table and environment names]
 ```
 
 Then run, before every commit:
@@ -61,7 +61,19 @@ PRIVATE_TERMS_FILE=~/.config/turbocharger/private-terms bash scripts/check.sh
 
 Set the variable in your shell profile to avoid typing it each time.
 
-The check fails on a private name anywhere in the repository, on leftovers such as calendar dates and ticket numbers, on hidden content such as invisible characters and comments that are not displayed, and on a badly formed skill header. Without `PRIVATE_TERMS_FILE` it cannot look for private names; it says so and fails, unless you pass `--no-private-terms`, which is meant for automated runs where the list cannot exist.
+The check fails on a private name anywhere in the repository, on leftovers such as calendar dates and ticket numbers, on hidden content, and on a badly formed skill header.
+
+Hidden content is anything an agent would read but a person looking at the page would not see. The check looks at every file that would be committed, and fails on:
+
+- characters that cannot be seen, or that change the order text is read in;
+- a file that is not plain text, or a file that is only a link to another file;
+- any file other than Markdown inside a skill folder;
+- a long run of spaces that pushes text out of view;
+- in Markdown, anything GitHub does not show: HTML, words between angle brackets, link definitions, link titles, images, characters written as codes, and formulas.
+
+Write placeholders in square brackets, [like this], never in angle brackets: GitHub silently drops words between angle brackets. These rules apply inside code blocks too.
+
+If you change the check, also run `bash scripts/check.sh --self-test`. It plants each known way of hiding an instruction in a small test copy and confirms the check catches every one. Without `PRIVATE_TERMS_FILE` it cannot look for private names; it says so and fails, unless you pass `--no-private-terms`, which is meant for automated runs where the list cannot exist.
 
 The publisher's own name is normally on the list too. It may appear in two places, which the check allows: the `owner` or `author` line of a file under `.claude-plugin/` (keep that entry on a single line), and the copyright line of `LICENSE`.
 
@@ -83,7 +95,7 @@ The check cannot judge meaning. Whether a sentence retells one project's story i
 - The short page has these sections, in order: In short, Use this when, Do this, Warning signs, Why it matters, More detail.
 - "Do this" is a numbered list of at most eight rules, each starting with the instruction in bold.
 - Keep the short page under 450 words. The check warns above that.
-- `reference.md` holds the finer rules. Templates sit in the same folder.
+- `reference.md` holds the finer rules. Templates sit in the same folder. A skill folder holds Markdown files only.
 - Each rule has one home. Where a skill depends on another, name it and leave the content there.
 
 ## Version numbers
