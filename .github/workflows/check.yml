@@ -16,6 +16,12 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # Pinned to an exact commit, so a moved or replaced tag cannot change
+      # what runs here. To update, look up the commit of a newer release.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
       - name: Skill shape, project leftovers and hidden content
         run: bash scripts/check.sh --no-private-terms
+      - name: The hidden-content check still catches known tricks
+        run: bash scripts/check.sh --self-test

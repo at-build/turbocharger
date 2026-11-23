@@ -56,7 +56,7 @@ The skills hold the habits. The project facts file holds your project's own deta
 
 ## Status
 
-Version 0.3.2. The habits are drawn from real work. The skill wording has not yet been tried on test situations without and with each skill, which is the test described in [CONTRIBUTING.md](CONTRIBUTING.md). Treat this release as a reviewed draft.
+Version 0.3.3. The habits are drawn from real work. The skill wording has not yet been tried on test situations without and with each skill, which is the test described in [CONTRIBUTING.md](CONTRIBUTING.md). Treat this release as a reviewed draft.
 
 ## Acknowledgements
 

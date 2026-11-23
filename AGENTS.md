@@ -21,9 +21,10 @@ Seven skills, written in everyday language, that improve the information an AI a
 - Run the check script, and fix whatever it reports:
 
   ```
-  PRIVATE_TERMS_FILE=<path to the private list of project names> bash scripts/check.sh
+  PRIVATE_TERMS_FILE=[path to the private list of project names] bash scripts/check.sh
   ```
 
+- If you changed the check script, also run `bash scripts/check.sh --self-test`, and add a case for any new way of hiding text you guard against.
 - Add a line to `CHANGELOG.md` and raise the version number in both files under `.claude-plugin/`.
 
 ## Do not
